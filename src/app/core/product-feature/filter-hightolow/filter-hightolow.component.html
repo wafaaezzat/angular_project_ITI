@@ -1,0 +1,38 @@
+<div class="container">
+
+    <!-- filters -->
+    <app-product-filter class="filters"></app-product-filter>
+    <!-- Items -->
+    <section class="item-listing">
+        <!-- tools (sorting , change view , exporting) -->
+        <div class="item-listing__tools">
+            <select class="form-control" name="" id="">
+                <option value="1">Featured</option>
+                <option outerLink="/lowtohigh" value="2">Price low to high</option>
+                <option routerLink="/hightolow" value="3">Price high to low</option>
+                <option value="4">Name</option>
+            </select>
+            <a class="action-btn" routerLink="/product/add">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+        <!-- items -->
+        <div class="item-listing__items item-listing--3items">
+            <!-- medium item -->
+            <app-product-item *ngFor="let item of productsArray| paginate: { itemsPerPage: 10,currentPage: page} | filter: searchKey: 'name'" class="item-medium-1" [productItem]="item"></app-product-item>
+        </div>
+        <!-- paging -->
+        <div class="paging">
+            <!-- left arrow -->
+            <div class="paging__arrow">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <!-- page number -->
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            <!-- right arrow -->
+            <div class="paging__arrow">
+                <i class="fas fa-angle-right"></i>
+            </div>
+        </div>
+    </section>
+</div>

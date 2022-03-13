@@ -1,0 +1,39 @@
+<!-- filters -->
+<!-- search box -->
+<div class="search-box">
+    <input class="search-box__input" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search..." type="text" name="txt_search" id="">
+    <button type="submit" class="search-box__btn">
+        <i class="fas fa-search"></i>
+    </button>
+</div>
+<!-- filter list -->
+<div>
+    <!-- filter header -->
+    <h5>Categories</h5>
+    <!-- filter list -->
+    <ul class="list list--vr-separator">
+        <li [routerLink]="['/category',category.id]" *ngFor="let category of categories" class="link list__item"><i
+                class="link__icon fas fa-angle-right"></i>{{category.name}}</li>
+
+    </ul>
+</div>
+<!-- filter tags -->
+<div>
+    <!-- filter header -->
+    <h5>Tags</h5>
+    <!-- filter tags -->
+    <div style="display: flex;">
+        <div class="tags">
+            <span *ngFor="let tag of tags" class="tag">{{tag.name}}</span>
+        </div>
+    </div>
+</div>
+<!-- related items -->
+<div>
+    <!-- title -->
+    <h5></h5>
+    <!-- small item -->
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
